@@ -1,0 +1,18 @@
+# Lint workflow
+name: Lint code
+on:
+  - push
+  - pull_request
+jobs:
+  build:
+    # The type of machine to run the job on
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Validate
+        run: make validate
+
+      - name: Lint
+        run: make lint
