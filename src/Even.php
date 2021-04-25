@@ -11,11 +11,10 @@ define('MAX_TRY', 3);
 define('GAME_MIN_VALUE', 1);
 define('GAME_MAX_VALUE', 100);
 
-function game($name)
+function game()
 {
     line(RULE);
 
-    $success = true;
     for ($i = 0; $i < MAX_TRY; $i++) {
         $number = generate();
         line('Question, %s', $number);

@@ -9,5 +9,5 @@ if (file_exists($autoloadPath1)) {
 }
 
 $name = Brain\Games\Dialog\getName();
-$result = Brain\Games\Even\game($name);
+$result = Brain\Games\Even\game();
 Brain\Games\Dialog\showEndMessage($name, $result);
