@@ -14,5 +14,8 @@ jobs:
       - name: Validate
         run: make validate
 
+      - name: Install
+        run: make install
+
       - name: Lint
         run: make lint
