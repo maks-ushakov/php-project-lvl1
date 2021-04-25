@@ -2,12 +2,15 @@
     "name": "hexlet/code",
     "description": "Brain games",
     "type": "project",
-    "license": "Apache",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "Maks Ushakov",
             "email": "ush.maksim@gmail.com"
         }
+    ],
+    "bin": [
+        "bin/brain-games"
     ],
     "require": {}
 }
