@@ -1,0 +1,13 @@
+{
+    "name": "hexlet/code",
+    "description": "Brain games",
+    "type": "project",
+    "license": "Apache",
+    "authors": [
+        {
+            "name": "Maks Ushakov",
+            "email": "ush.maksim@gmail.com"
+        }
+    ],
+    "require": {}
+}
