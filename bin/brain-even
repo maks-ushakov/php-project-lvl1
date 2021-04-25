@@ -8,4 +8,6 @@ if (file_exists($autoloadPath1)) {
 	require_once $autoloadPath2;
 }
 
-Brain\Games\Even\game();
+$name = Brain\Games\Dialog\getName();
+$result = Brain\Games\Even\game($name);
+Brain\Games\Dialog\showEndMessage($name, $result);

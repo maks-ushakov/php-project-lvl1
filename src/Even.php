@@ -4,17 +4,15 @@ namespace Brain\Games\Even;
 
 use function Cli\prompt;
 use function Cli\line;
+use function Brain\Games\Dialog\showWrongMessage;
 
-define('GAME_MEET_QUESTION', 'May I have your name?');
-define('GAME_START_PHRASE', 'Welcome to the Brain Games!');
 define('RULE', 'Answer "yes" if the number is even, otherwise answer "no".');
 define('MAX_TRY', 3);
 define('GAME_MIN_VALUE', 1);
 define('GAME_MAX_VALUE', 100);
 
-function game()
+function game($name)
 {
-    $name = getName();
     line(RULE);
 
     $success = true;
@@ -26,12 +24,11 @@ function game()
         $answer = prompt('Your answer');
         if ($answer !== $correct) {
             showWrongMessage($answer, $correct);
-            $success = false;
-            break;
+            return false;
         }
         line('Correct');
     }
-    showEndMessage($name, $success);
+    return true;
 }
 
 function generate()
@@ -42,26 +39,4 @@ function generate()
 function getCorrect($number)
 {
     return $number % 2 === 0 ? 'yes' : 'no';
-}
-
-function getName()
-{
-    line(START_PHRASE);
-    $name =  prompt(MEET_QUESTION);
-    line('Hello, %s', $name);
-    return $name;
-}
-
-function showWrongMessage($answer, $correct)
-{
-    line("'%s' is wrong answer ;(. Correct answer was '%s'", $answer, $correct);
-}
-
-function showEndMessage($name, $result)
-{
-    if ($result) {
-        line('Congratulations, %s!', $name);
-    } else {
-        line("Let's try again, %s!", $name);
-    }
 }
