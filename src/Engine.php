@@ -42,3 +42,10 @@ function gcd()
     $rule = \Brain\Games\Games\Gcd\rule();
     run($game, $rule);
 }
+
+function progression()
+{
+    $game = 'Brain\Games\Games\Progression\game';
+    $rule = \Brain\Games\Games\Progression\rule();
+    run($game, $rule);
+}
