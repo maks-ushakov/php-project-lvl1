@@ -26,7 +26,7 @@ function run($game, $rule)
 
 function generateNumber()
 {
-    return random_int(GAME_MIN_VALUE, GAME_MAX_VALUE);
+    return random_int(ENGINE_MIN_VALUE, ENGINE_MAX_VALUE);
 }
 
 function calc()
