@@ -4,6 +4,10 @@ namespace Brain\Games\Games\Progression;
 
 use function Brain\Games\Engine\generateNumber;
 
+define('PROGRESSION_MIN_SIZE', 5);
+define('PROGRESSION_RECOMEND_SIZE', 11);
+define('PROGRESSION_MAX_COMMON_DIFF', 10);
+
 function rule(): string
 {
     return 'What number is missing in the progression?';
@@ -12,8 +16,8 @@ function rule(): string
 function game(): array
 {
     $startNumber = generateNumber();
-    $size = 5 + generateNumber(6);
-    $commonDiff = generateNumber(10);
+    $size = PROGRESSION_MIN_SIZE + generateNumber(PROGRESSION_RECOMEND_SIZE - PROGRESSION_MIN_SIZE);
+    $commonDiff = generateNumber(PROGRESSION_MAX_COMMON_DIFF);
     $progression = generateProgression($size, $startNumber, $commonDiff);
     $hiddenIndex = generateNumber(count($progression)) - 1 ;
 
