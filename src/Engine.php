@@ -49,3 +49,10 @@ function progression()
     $rule = \Brain\Games\Games\Progression\rule();
     run($game, $rule);
 }
+
+function prime()
+{
+    $game = 'Brain\Games\Games\Prime\game';
+    $rule = \Brain\Games\Games\Prime\rule();
+    run($game, $rule);
+}
