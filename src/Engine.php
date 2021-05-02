@@ -35,3 +35,10 @@ function calc()
     $rule = \Brain\Games\Games\Calc\rule();
     run($game, $rule);
 }
+
+function gcd()
+{
+    $game = 'Brain\Games\Games\Gcd\game';
+    $rule = \Brain\Games\Games\Gcd\rule();
+    run($game, $rule);
+}
