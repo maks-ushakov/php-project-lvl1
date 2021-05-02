@@ -3,12 +3,14 @@
 namespace Brain\Games\Engine;
 
 use function Cli\line;
-use function Brain\Games\Dialog\getName;
-use function Brain\Games\Dialog\showEndMessage;
+use function cli\prompt;
 
 define('ENGINE_MIN_VALUE', 1);
 define('ENGINE_MAX_VALUE', 100);
 define('MAX_ROUNDS', 3);
+define('ENGINE_MEET_QUESTION', 'May I have your name?');
+define('ENGINE_START_PHRASE', 'Welcome to the Brain Games!');
+define('ENGINE_WRONG_MESSAGE', "'%s' is wrong answer ;(. Correct answer was '%s'");
 
 function run($game, $rule)
 {
@@ -16,18 +18,46 @@ function run($game, $rule)
     line($rule);
     $result = true;
     for ($i = 0; $i < MAX_ROUNDS; $i++) {
-        $result &= $game();
-        if (!$result) {
+        [$question, $correctAnswer] = $game();
+        line('Question, %s', $question);
+        $answer = prompt('Your answer');
+        if ($answer !== $correctAnswer) {
+            showWrongMessage($answer, $correctAnswer);
+            $result = false;
             break;
         }
+        line('Correct');
     }
     showEndMessage($name, $result);
 }
 
-function generateNumber()
+function generateNumber($maxNumber = ENGINE_MAX_VALUE): int
 {
-    return random_int(ENGINE_MIN_VALUE, ENGINE_MAX_VALUE);
+    return random_int(ENGINE_MIN_VALUE, $maxNumber);
 }
+
+function getName()
+{
+    line(ENGINE_START_PHRASE);
+    $name =  prompt(ENGINE_MEET_QUESTION);
+    line('Hello, %s', $name);
+    return $name;
+}
+
+function showWrongMessage($answer, $correct)
+{
+    line(ENGINE_WRONG_MESSAGE, $answer, $correct);
+}
+
+function showEndMessage($name, $result)
+{
+    if ($result) {
+        line('Congratulations, %s!', $name);
+    } else {
+        line("Let's try again, %s!", $name);
+    }
+}
+
 
 function calc()
 {

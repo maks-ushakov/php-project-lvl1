@@ -3,45 +3,24 @@
 namespace Brain\Games\Games\Progression;
 
 use function Brain\Games\Engine\generateNumber;
-use function Cli\prompt;
-use function Cli\line;
-use function Brain\Games\Dialog\showWrongMessage;
 
 function rule(): string
 {
     return 'What number is missing in the progression?';
 }
 
-function game(): bool
+function game(): array
 {
     $startNumber = generateNumber();
-    $size = 5 + generateLimitedNumber(6);
-    $commonDiff = generateLimitedNumber(10);
+    $size = 5 + generateNumber(6);
+    $commonDiff = generateNumber(10);
     $progression = generateProgression($size, $startNumber, $commonDiff);
-    $hiddenIndex = generateLimitedNumber(count($progression)) - 1 ;
+    $hiddenIndex = generateNumber(count($progression)) - 1 ;
 
+    $correct = (string) $progression[$hiddenIndex];
     $question = makeQuestion($progression, $hiddenIndex);
 
-    line('Question, %s', $question);
-    $answer = (int)prompt('Your answer');
-
-    $correct = getCorrect($progression, $hiddenIndex);
-    if ($answer !== $correct) {
-        showWrongMessage($answer, $correct);
-        return false;
-    }
-    line('Correct');
-    return true;
-}
-
-function getCorrect(array $collection, int $index)
-{
-    return $collection[$index];
-}
-
-function generateLimitedNumber(int $maxNumber): int
-{
-    return  random_int(1, $maxNumber);
+    return [$question, $correct];
 }
 
 function makeQuestion($collection, $index): string
