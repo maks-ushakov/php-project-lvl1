@@ -23,7 +23,7 @@ function isPrime($number): bool
         return false;
     }
     $limit = sqrt($number);
-    for ($i = 2; $i < $limit; $i++) {
+    for ($i = 2; $i <= $limit; $i++) {
         if ($number % $i == 0) {
             return false;
         }
