@@ -22,3 +22,7 @@
 [![asciicast](https://asciinema.org/a/411306.png)](https://asciinema.org/a/411306)
 
 [![asciicast](https://asciinema.org/a/411307.png)](https://asciinema.org/a/411307)
+
+[![asciicast](https://asciinema.org/a/411323.png)](https://asciinema.org/a/411323)
+
+[![asciicast](https://asciinema.org/a/411324.png)](https://asciinema.org/a/411324)
