@@ -19,7 +19,7 @@ function run($game, $rule)
     $result = true;
     for ($i = 0; $i < MAX_ROUNDS; $i++) {
         [$question, $correctAnswer] = $game();
-        line('Question, %s', $question);
+        line('Question: %s', $question);
         $answer = prompt('Your answer');
         if ($answer !== $correctAnswer) {
             showWrongMessage($answer, $correctAnswer);
