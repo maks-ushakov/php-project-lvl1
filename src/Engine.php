@@ -58,6 +58,12 @@ function showEndMessage($name, $result)
     }
 }
 
+function even()
+{
+    $game = 'Brain\Games\Games\Even\game';
+    $rule = \Brain\Games\Games\Even\rule();
+    run($game, $rule);
+}
 
 function calc()
 {
