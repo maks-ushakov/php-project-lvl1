@@ -21,7 +21,7 @@ function run($game, $rule)
         [$question, $correctAnswer] = $game();
         line('Question: %s', $question);
         $answer = prompt('Your answer');
-        if ($answer !== $correctAnswer) {
+        if ($answer !== (string) $correctAnswer) {
             showWrongMessage($answer, $correctAnswer);
             $result = false;
             break;
