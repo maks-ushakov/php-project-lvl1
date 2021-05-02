@@ -9,7 +9,7 @@ use function Brain\Games\Dialog\showWrongMessage;
 
 function rule(): string
 {
-    return 'What is the result of the expression?';
+    return 'Find the greatest common divisor of given numbers.';
 }
 
 function game(): bool
