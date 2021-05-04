@@ -17,7 +17,7 @@ function game(): array
     return [$number, $correct];
 }
 
-function isPrime($number): bool
+function isPrime(int $number): bool
 {
     if ($number == 1) {
         return false;

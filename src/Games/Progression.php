@@ -27,7 +27,7 @@ function game(): array
     return [$question, $correct];
 }
 
-function makeQuestion($collection, $index): string
+function makeQuestion(array $collection, int $index): string
 {
     $collection[$index] = '..';
     return implode(' ', $collection);

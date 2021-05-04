@@ -29,7 +29,7 @@ function generateOperation(): string
     return CALC_OPERATION_LIST[$index];
 }
 
-function apply(int $first, int $second, string $operation)
+function apply(int $first, int $second, string $operation = '+'): int
 {
     if ($operation == '+') {
         return $first + $second;
@@ -41,4 +41,5 @@ function apply(int $first, int $second, string $operation)
     if ($operation == '*') {
         return $first * $second;
     }
+    return $first + $second;
 }
