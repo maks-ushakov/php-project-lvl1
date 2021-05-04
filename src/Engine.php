@@ -12,7 +12,7 @@ define('ENGINE_MEET_QUESTION', 'May I have your name?');
 define('ENGINE_START_PHRASE', 'Welcome to the Brain Games!');
 define('ENGINE_WRONG_MESSAGE', "'%s' is wrong answer ;(. Correct answer was '%s'");
 
-function run(string $game, string $rule): void
+function run(callable $game, string $rule): void
 {
     $name = getName();
     line($rule);
